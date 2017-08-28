@@ -10306,3 +10306,4 @@
 [Tue Aug 29 00:09:50 2017] 127.0.0.1:60407 [200]: /js/core/core.js
 [Tue Aug 29 00:09:50 2017] 127.0.0.1:60408 [200]: /main.js
 [Tue Aug 29 00:10:03 2017] 127.0.0.1:60412 [200]: /shader/grid.frag
+[Tue Aug 29 00:11:30 2017] 127.0.0.1:60413 Invalid request (Unexpected EOF)

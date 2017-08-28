@@ -199,7 +199,7 @@ Core.Scene("main", s => {
                 }
                 return !item.dead();
             });
-            if (5 - (new Date() - starttime) / 1000 <= 0) {
+            if (30 - (new Date() - starttime) / 1000 <= 0) {
                 s.to("GameOver", kill => {
                     killMain = kill;
                 }, itemCnt);
