@@ -221,6 +221,12 @@ const start = _ => {
                 .color(1,0,0)
                 .sizeH(100)
                 .go();
+            s.text()
+                .text("Press t to tweet")
+                .color(1,0,0)
+                .center(0,-50)
+                .sizeH(100)
+                .go();
 
             s.mouse.left.onDown = _ => {
                 s.to("Title", kill => {
@@ -228,7 +234,9 @@ const start = _ => {
                     killMain();
                 });
             };
-            window.open('https://twitter.com/intent/tweet?text=' + time + '秒で優勝した。&url=http://jam0828.sobaya007.trap.show/&hashtags=traP3jam', '_blank');
+            s.key.t.onDown = _ => {
+                window.open('https://twitter.com/intent/tweet?text=' + time + '秒で優勝した。&url=http://jam0828.sobaya007.trap.show/&hashtags=traP3jam', '_blank');
+            };
         };
     });
 
@@ -239,6 +247,12 @@ const start = _ => {
                 .color(1,0,0)
                 .sizeH(100)
                 .go();
+            s.text()
+                .text("Press t to tweet")
+                .color(1,0,0)
+                .sizeH(100)
+                .center(0,-50)
+                .go();
 
             s.mouse.left.onDown = _ => {
                 s.to("Title", kill => {
@@ -246,7 +260,9 @@ const start = _ => {
                     killMain();
                 });
             };
-            window.open('https://twitter.com/intent/tweet?text=' + itemCnt + '個で終了。&url=http://jam0828.sobaya007.trap.show/&hashtags=traP3jam', '_blank');
+            s.key.t.onDown = _ => {
+                window.open('https://twitter.com/intent/tweet?text=' + itemCnt + '個で終了。&url=http://jam0828.sobaya007.trap.show/&hashtags=traP3jam', '_blank');
+            };
         };
     });
 
