@@ -220,7 +220,7 @@ Core.Scene("Clear", s => {
             .sizeH(100)
             .go();
         s.text()
-            .text("Press t to tweet & Press Enter to return Title")
+            .text("Press t to tweet & Press F5 to return Title")
             .color(1,0,0)
             .center(0,-50)
             .sizeH(100)
@@ -246,7 +246,7 @@ Core.Scene("GameOver", s => {
             .sizeH(100)
             .go();
         s.text()
-            .text("Press t to tweet & Press Enter to return Title")
+            .text("Press t to tweet & Press F5 to return Title")
             .color(1,0,0)
             .sizeH(100)
             .center(0,-50)
@@ -263,6 +263,5 @@ Core.Scene("GameOver", s => {
         };
     };
 });
-
 
 Core.Launch("Title");
