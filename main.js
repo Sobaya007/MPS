@@ -195,7 +195,7 @@ Core.Scene("main", s => {
                             returnFlag = false;
                             s.to("Clear", kill => {
                                 killMain = kill;
-                            });
+                            }, 30 - (new Date() - starttime) / 1000);
                         }
                     }
                 }
@@ -213,7 +213,7 @@ Core.Scene("main", s => {
 let killMain;
 
 Core.Scene("Clear", s => {
-    s.onStart = _ => {
+    s.onStart = time => {
         s.text()
             .text("Congratulation!!")
         .color(1,0,0)
@@ -226,7 +226,7 @@ Core.Scene("Clear", s => {
                 killMain();
             });
         };
-        window.open('https://twitter.com/intent/tweet?text=優勝した。&url=http://jam0828.sobaya007.trap.show/&hashtags=traP3jam', '_blank');
+        window.open('https://twitter.com/intent/tweet?text=" + time + "秒で優勝した。&url=http://jam0828.sobaya007.trap.show/&hashtags=traP3jam', '_blank');
     };
 });
 
