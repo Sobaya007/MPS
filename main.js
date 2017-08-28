@@ -137,6 +137,8 @@ Core.Scene("main", s => {
                         }
                         time = (time + 1) % P3;
                     }
+                    o.x = x;
+                    o.y = y;
                 })
                 .go();
             o.x = cx;
