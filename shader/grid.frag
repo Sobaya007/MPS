@@ -9,7 +9,7 @@ void main() {
         float strength = exp(-rs[i] * 0.0001);
         float d = length(p - origin) - rs[i];
         float e = strength * exp(-d * d * WAVE_SIZE);
-        p += e * normalize(p - (origin + normalize(p-origin) * rs[i]));
+        p += e * normalize(p - (origin + (p-origin) * rs[i]));
         effect += e;
     }
     float po = min(
