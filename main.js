@@ -188,7 +188,7 @@ Core.Scene("main", s => {
             items = items.filter(item => {
                 const dx = GV.camera3d.position.x - item.x;
                 const dy = GV.camera3d.position.y - item.y;
-                if ((dx * dx + dy * dy) < 10) {
+                if ((dx * dx + dy * dy) < 10 * 10) {
                     if (item.kill()) {
                         itemCnt++;
                         if (itemCnt == ITEM_NUM) {
