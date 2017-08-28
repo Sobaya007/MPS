@@ -76,7 +76,7 @@ Core.Scene("main", s => {
             .go();
 
         s.text()
-            .text(_ => "" + Math.floor((30 - (new Date() - starttime) / 1000) * 100) / 100)
+            .text(_ => "" + Math.max(0, Math.floor((30 - (new Date() - starttime) / 1000) * 100) / 100))
             .color(1,1,1)
             .center(-120, 70)
             .sizeW(50)
@@ -220,13 +220,13 @@ Core.Scene("Clear", s => {
             .sizeH(100)
             .go();
         s.text()
-            .text("Press t to tweet")
+            .text("Press t to tweet & Press Enter to return Title")
             .color(1,0,0)
             .center(0,-50)
             .sizeH(100)
             .go();
 
-        s.mouse.left.onDown = _ => {
+        s.key.Enter.onDown = _ => {
             s.to("Title", kill => {
                 kill();
                 killMain();
@@ -246,13 +246,13 @@ Core.Scene("GameOver", s => {
             .sizeH(100)
             .go();
         s.text()
-            .text("Press t to tweet")
+            .text("Press t to tweet & Press Enter to return Title")
             .color(1,0,0)
             .sizeH(100)
             .center(0,-50)
             .go();
 
-        s.mouse.left.onDown = _ => {
+        s.key.Enter.onDown = _ => {
             s.to("Title", kill => {
                 kill();
                 killMain();
