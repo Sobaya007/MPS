@@ -226,7 +226,7 @@ Core.Scene("Clear", s => {
                 killMain();
             });
         };
-        window.open('https://twitter.com/intent/tweet?text=" + time + "秒で優勝した。&url=http://jam0828.sobaya007.trap.show/&hashtags=traP3jam', '_blank');
+        window.open('https://twitter.com/intent/tweet?text' + time + '秒で優勝した。&url=http://jam0828.sobaya007.trap.show/&hashtags=traP3jam', '_blank');
     };
 });
 
