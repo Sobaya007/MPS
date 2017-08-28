@@ -68,22 +68,18 @@ window.makeScene = (sceneName, startScene, kill, loadMakers, dictionaries, progr
      * (sceneName, kill)を受け取り、そのSceneに移行します。
      * killを呼び出すと、移行前のSceneのStepが止まり、onStart内でTHREE.jsのsceneにaddされたものがすべてremoveされます。
      */
-    const makeTo = _ => {
-        s.to = (nextSceneName, onEnd, fromPrev) => {
-            s.to = _ => {};
-            Core.Add(killThis => {
-                const killScene = _ => {
-                    killThis();
-                    kill();
-                    makeTo();
-                };
-                onEnd(killScene);
-            });
-            startScene(nextSceneName, fromPrev);
-            console.log("Started Scene '" + nextSceneName + "'");
-        };
+    s.to = (nextSceneName, onEnd, fromPrev) => {
+        s.to = _ => {};
+        Core.Add(killThis => {
+            const killScene = _ => {
+                killThis();
+                kill();
+            };
+            onEnd(killScene);
+        });
+        startScene(nextSceneName, fromPrev);
+        console.log("Started Scene '" + nextSceneName + "'");
     };
-    makeTo();
     s.allStepsKill = _ => {
         Core.Add(kill => {
             s.steps.length = 0;
