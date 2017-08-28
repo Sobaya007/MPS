@@ -225,13 +225,6 @@ Core.Scene("Clear", s => {
             .center(0,-50)
             .sizeH(100)
             .go();
-
-        s.key.Enter.onDown = _ => {
-            s.to("Title", kill => {
-                kill();
-                killMain();
-            });
-        };
         s.key.t.onDown = _ => {
             window.open('https://twitter.com/intent/tweet?text=' + time + '秒で優勝した。&url=http://jam0828.sobaya007.trap.show/&hashtags=traP3jam', '_blank');
         };
@@ -251,13 +244,6 @@ Core.Scene("GameOver", s => {
             .sizeH(100)
             .center(0,-50)
             .go();
-
-        s.key.Enter.onDown = _ => {
-            s.to("Title", kill => {
-                kill();
-                killMain();
-            });
-        };
         s.key.t.onDown = _ => {
             window.open('https://twitter.com/intent/tweet?text=' + itemCnt + '個で終了。&url=http://jam0828.sobaya007.trap.show/&hashtags=traP3jam', '_blank');
         };
