@@ -11285,3 +11285,506 @@
 [Tue Aug 29 01:39:20 2017] 127.0.0.1:64629 [200]: /js/core/loadImage.js
 [Tue Aug 29 01:39:20 2017] 127.0.0.1:64630 [200]: /js/core/binaryIO.js
 [Tue Aug 29 01:39:20 2017] 127.0.0.1:64631 [200]: /js/core/process.js
+[Tue Oct 31 12:36:11 2017] 127.0.0.1:59677 [200]: /
+[Tue Oct 31 12:36:11 2017] 127.0.0.1:59678 [200]: /main.js
+[Tue Oct 31 12:36:11 2017] 127.0.0.1:59680 [404]: /favicon.ico - No such file or directory
+[Tue Oct 31 12:36:35 2017] 127.0.0.1:59719 [200]: /
+[Tue Oct 31 12:36:36 2017] 127.0.0.1:59720 [200]: /main.js
+[Tue Oct 31 12:36:55 2017] 127.0.0.1:59723 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:36:55 2017] 127.0.0.1:59721 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:36:55 2017] 127.0.0.1:59722 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:36:55 2017] 127.0.0.1:59755 [200]: /
+[Tue Oct 31 12:36:56 2017] 127.0.0.1:59756 [200]: /main.js
+[Tue Oct 31 12:37:48 2017] 127.0.0.1:59759 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:37:48 2017] 127.0.0.1:59757 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:37:48 2017] 127.0.0.1:59758 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:37:49 2017] 127.0.0.1:59837 [200]: /
+[Tue Oct 31 12:37:49 2017] 127.0.0.1:59838 [200]: /main.js
+[Tue Oct 31 12:38:00 2017] 127.0.0.1:59840 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:38:00 2017] 127.0.0.1:59839 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:38:09 2017] 127.0.0.1:59874 [200]: /
+[Tue Oct 31 12:38:09 2017] 127.0.0.1:59875 [200]: /main.js
+[Tue Oct 31 12:38:43 2017] 127.0.0.1:59876 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:38:43 2017] 127.0.0.1:59877 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:38:44 2017] 127.0.0.1:59935 [200]: /
+[Tue Oct 31 12:38:44 2017] 127.0.0.1:59936 [200]: /main.js
+[Tue Oct 31 12:39:00 2017] 127.0.0.1:59937 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:39:00 2017] 127.0.0.1:59938 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:39:00 2017] 127.0.0.1:59966 [200]: /
+[Tue Oct 31 12:39:00 2017] 127.0.0.1:59967 [200]: /main.js
+[Tue Oct 31 12:39:47 2017] 127.0.0.1:59969 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:39:47 2017] 127.0.0.1:59968 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:39:48 2017] 127.0.0.1:60042 [200]: /
+[Tue Oct 31 12:39:48 2017] 127.0.0.1:60043 [200]: /main.js
+[Tue Oct 31 12:39:59 2017] 127.0.0.1:60044 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:39:59 2017] 127.0.0.1:60045 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:40:20 2017] 127.0.0.1:60101 [200]: /
+[Tue Oct 31 12:40:21 2017] 127.0.0.1:60102 [200]: /main.js
+[Tue Oct 31 12:40:54 2017] 127.0.0.1:60104 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:40:54 2017] 127.0.0.1:60103 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:40:54 2017] 127.0.0.1:60156 [200]: /
+[Tue Oct 31 12:40:59 2017] 127.0.0.1:60157 [200]: /
+[Tue Oct 31 12:40:59 2017] 127.0.0.1:60158 [200]: /main.js
+[Tue Oct 31 12:41:00 2017] 127.0.0.1:60159 [200]: /
+[Tue Oct 31 12:41:00 2017] 127.0.0.1:60170 [200]: /main.js
+[Tue Oct 31 12:41:24 2017] 127.0.0.1:60204 [200]: /
+[Tue Oct 31 12:41:24 2017] 127.0.0.1:60205 [200]: /main.js
+[Tue Oct 31 12:41:50 2017] 127.0.0.1:60208 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:41:50 2017] 127.0.0.1:60248 [200]: /
+[Tue Oct 31 12:41:56 2017] 127.0.0.1:60249 [200]: /
+[Tue Oct 31 12:41:56 2017] 127.0.0.1:60250 [200]: /main.js
+[Tue Oct 31 12:42:06 2017] 127.0.0.1:60276 [200]: /
+[Tue Oct 31 12:42:13 2017] 127.0.0.1:60277 [200]: /
+[Tue Oct 31 12:42:13 2017] 127.0.0.1:60289 [200]: /main.js
+[Tue Oct 31 12:43:37 2017] 127.0.0.1:60290 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:43:37 2017] 127.0.0.1:60407 [200]: /
+[Tue Oct 31 12:43:43 2017] 127.0.0.1:60408 [200]: /
+[Tue Oct 31 12:43:47 2017] 127.0.0.1:60409 [200]: /
+[Tue Oct 31 12:43:49 2017] 127.0.0.1:60428 [200]: /
+[Tue Oct 31 12:43:50 2017] 127.0.0.1:60434 [200]: /main.js
+[Tue Oct 31 12:44:00 2017] 127.0.0.1:60435 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:53:43 2017] 127.0.0.1:61246 [200]: /
+[Tue Oct 31 12:53:52 2017] 127.0.0.1:61247 [200]: /
+[Tue Oct 31 12:53:52 2017] 127.0.0.1:61265 [200]: /main.js
+[Tue Oct 31 12:54:02 2017] 127.0.0.1:61266 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:54:03 2017] 127.0.0.1:61283 [200]: /
+[Tue Oct 31 12:54:03 2017] 127.0.0.1:61286 [200]: /main.js
+[Tue Oct 31 12:55:24 2017] 127.0.0.1:61287 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:55:25 2017] 127.0.0.1:61402 [200]: /
+[Tue Oct 31 12:55:37 2017] 127.0.0.1:61404 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:55:37 2017] 127.0.0.1:61403 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:55:38 2017] 127.0.0.1:61423 [200]: /
+[Tue Oct 31 12:55:38 2017] 127.0.0.1:61427 [200]: /main.js
+[Tue Oct 31 12:55:49 2017] 127.0.0.1:61429 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:57:09 2017] 127.0.0.1:61555 [200]: /
+[Tue Oct 31 12:57:15 2017] 127.0.0.1:61556 [200]: /
+[Tue Oct 31 12:57:17 2017] 127.0.0.1:61557 [200]: /
+[Tue Oct 31 12:57:17 2017] 127.0.0.1:61576 [200]: /main.js
+[Tue Oct 31 12:57:26 2017] 127.0.0.1:61577 [200]: /
+[Tue Oct 31 12:57:27 2017] 127.0.0.1:61592 [200]: /main.js
+[Tue Oct 31 12:58:10 2017] 127.0.0.1:61593 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:58:11 2017] 127.0.0.1:61657 [200]: /
+[Tue Oct 31 12:58:11 2017] 127.0.0.1:61658 [200]: /main.js
+[Tue Oct 31 12:59:20 2017] 127.0.0.1:61659 Invalid request (Unexpected EOF)
+[Tue Oct 31 12:59:21 2017] 127.0.0.1:61755 [200]: /
+[Tue Oct 31 12:59:26 2017] 127.0.0.1:61756 [200]: /
+[Tue Oct 31 12:59:26 2017] 127.0.0.1:61757 [200]: /main.js
+[Tue Oct 31 12:59:40 2017] 127.0.0.1:61789 [200]: /
+[Tue Oct 31 12:59:41 2017] 127.0.0.1:61790 [200]: /main.js
+[Tue Oct 31 13:00:00 2017] 127.0.0.1:61791 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:00:00 2017] 127.0.0.1:61820 [200]: /
+[Tue Oct 31 13:00:00 2017] 127.0.0.1:61822 [200]: /main.js
+[Tue Oct 31 13:01:21 2017] 127.0.0.1:61823 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:01:23 2017] 127.0.0.1:61941 [200]: /
+[Tue Oct 31 13:01:33 2017] 127.0.0.1:61942 [200]: /
+[Tue Oct 31 13:01:33 2017] 127.0.0.1:61943 [200]: /main.js
+[Tue Oct 31 13:01:35 2017] 127.0.0.1:61944 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:01:35 2017] 127.0.0.1:61966 [200]: /
+[Tue Oct 31 13:01:36 2017] 127.0.0.1:61968 [200]: /main.js
+[Tue Oct 31 13:02:58 2017] 127.0.0.1:61969 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:02:59 2017] 127.0.0.1:62082 [200]: /
+[Tue Oct 31 13:02:59 2017] 127.0.0.1:62086 [200]: /main.js
+[Tue Oct 31 13:03:10 2017] 127.0.0.1:62089 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:06:38 2017] 127.0.0.1:62385 [200]: /
+[Tue Oct 31 13:06:38 2017] 127.0.0.1:62386 [200]: /main.js
+[Tue Oct 31 13:06:41 2017] 127.0.0.1:62387 [200]: /
+[Tue Oct 31 13:06:41 2017] 127.0.0.1:62389 [200]: /main.js
+[Tue Oct 31 13:06:49 2017] 127.0.0.1:62409 [200]: /
+[Tue Oct 31 13:06:50 2017] 127.0.0.1:62411 [200]: /main.js
+[Tue Oct 31 13:07:36 2017] 127.0.0.1:62412 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:07:37 2017] 127.0.0.1:62481 [200]: /
+[Tue Oct 31 13:07:37 2017] 127.0.0.1:62482 [200]: /main.js
+[Tue Oct 31 13:12:59 2017] 127.0.0.1:62485 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:12:59 2017] 127.0.0.1:62483 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:12:59 2017] 127.0.0.1:62484 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:13:00 2017] 127.0.0.1:62930 [200]: /
+[Tue Oct 31 13:13:06 2017] 127.0.0.1:62931 [200]: /
+[Tue Oct 31 13:13:06 2017] 127.0.0.1:62932 [200]: /main.js
+[Tue Oct 31 13:13:11 2017] 127.0.0.1:62933 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:13:11 2017] 127.0.0.1:62957 [200]: /
+[Tue Oct 31 13:13:11 2017] 127.0.0.1:62958 [200]: /main.js
+[Tue Oct 31 13:13:13 2017] 127.0.0.1:62959 [200]: /
+[Tue Oct 31 13:13:13 2017] 127.0.0.1:62960 [200]: /main.js
+[Tue Oct 31 13:13:20 2017] 127.0.0.1:62966 [200]: /
+[Tue Oct 31 13:13:21 2017] 127.0.0.1:62980 [200]: /main.js
+[Tue Oct 31 13:13:39 2017] 127.0.0.1:62981 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:15:51 2017] 127.0.0.1:63191 [200]: /
+[Tue Oct 31 13:15:56 2017] 127.0.0.1:63192 [200]: /
+[Tue Oct 31 13:15:56 2017] 127.0.0.1:63193 [200]: /main.js
+[Tue Oct 31 13:15:58 2017] 127.0.0.1:63194 [200]: /
+[Tue Oct 31 13:15:58 2017] 127.0.0.1:63210 [200]: /main.js
+[Tue Oct 31 13:16:05 2017] 127.0.0.1:63211 [200]: /
+[Tue Oct 31 13:16:05 2017] 127.0.0.1:63224 [200]: /main.js
+[Tue Oct 31 13:18:51 2017] 127.0.0.1:63225 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:18:51 2017] 127.0.0.1:63458 [200]: /
+[Tue Oct 31 13:18:51 2017] 127.0.0.1:63463 [200]: /main.js
+[Tue Oct 31 13:19:02 2017] 127.0.0.1:63465 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:19:05 2017] 127.0.0.1:63490 [200]: /
+[Tue Oct 31 13:19:08 2017] 127.0.0.1:63491 [200]: /
+[Tue Oct 31 13:19:08 2017] 127.0.0.1:63492 [200]: /main.js
+[Tue Oct 31 13:19:39 2017] 127.0.0.1:63493 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:19:39 2017] 127.0.0.1:63543 [200]: /
+[Tue Oct 31 13:19:40 2017] 127.0.0.1:63545 [200]: /main.js
+[Tue Oct 31 13:20:59 2017] 127.0.0.1:63546 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:26:41 2017] 127.0.0.1:64145 [200]: /
+[Tue Oct 31 13:26:41 2017] 127.0.0.1:64147 [200]: /main.js
+[Tue Oct 31 13:26:59 2017] 127.0.0.1:64149 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:26:59 2017] 127.0.0.1:64179 [200]: /
+[Tue Oct 31 13:26:59 2017] 127.0.0.1:64180 [200]: /main.js
+[Tue Oct 31 13:28:24 2017] 127.0.0.1:64181 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:28:24 2017] 127.0.0.1:64182 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:28:24 2017] 127.0.0.1:64299 [200]: /
+[Tue Oct 31 13:28:25 2017] 127.0.0.1:64300 [200]: /
+[Tue Oct 31 13:28:26 2017] 127.0.0.1:64301 [200]: /main.js
+[Tue Oct 31 13:28:46 2017] 127.0.0.1:64302 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:41:26 2017] 127.0.0.1:65364 [200]: /
+[Tue Oct 31 13:41:28 2017] 127.0.0.1:65365 [200]: /
+[Tue Oct 31 13:41:28 2017] 127.0.0.1:65366 [200]: /main.js
+[Tue Oct 31 13:41:39 2017] 127.0.0.1:65367 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:41:51 2017] 127.0.0.1:65407 [200]: /
+[Tue Oct 31 13:41:53 2017] 127.0.0.1:65408 [200]: /
+[Tue Oct 31 13:41:53 2017] 127.0.0.1:65409 [200]: /main.js
+[Tue Oct 31 13:43:25 2017] 127.0.0.1:65412 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:43:26 2017] 127.0.0.1:49159 [200]: /
+[Tue Oct 31 13:43:26 2017] 127.0.0.1:49162 [200]: /main.js
+[Tue Oct 31 13:43:37 2017] 127.0.0.1:49164 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:44:04 2017] 127.0.0.1:49222 [200]: /
+[Tue Oct 31 13:44:04 2017] 127.0.0.1:49223 [200]: /main.js
+[Tue Oct 31 13:46:19 2017] 127.0.0.1:49225 Invalid request (Unexpected EOF)
+[Tue Oct 31 13:46:19 2017] 127.0.0.1:49224 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:00:47 2017] 127.0.0.1:50619 [200]: /
+[Tue Oct 31 14:00:48 2017] 127.0.0.1:50622 [200]: /main.js
+[Tue Oct 31 14:01:08 2017] 127.0.0.1:50624 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:01:08 2017] 127.0.0.1:50659 [200]: /
+[Tue Oct 31 14:01:08 2017] 127.0.0.1:50663 [200]: /main.js
+[Tue Oct 31 14:01:58 2017] 127.0.0.1:50664 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:01:59 2017] 127.0.0.1:50736 [200]: /
+[Tue Oct 31 14:01:59 2017] 127.0.0.1:50738 [200]: /main.js
+[Tue Oct 31 14:02:09 2017] 127.0.0.1:50741 [200]: /
+[Tue Oct 31 14:02:09 2017] 127.0.0.1:50755 [200]: /main.js
+[Tue Oct 31 14:02:12 2017] 127.0.0.1:50756 [200]: /
+[Tue Oct 31 14:02:12 2017] 127.0.0.1:50757 [200]: /main.js
+[Tue Oct 31 14:02:13 2017] 127.0.0.1:50759 [200]: /
+[Tue Oct 31 14:02:13 2017] 127.0.0.1:50762 [200]: /main.js
+[Tue Oct 31 14:02:13 2017] 127.0.0.1:50763 [200]: /
+[Tue Oct 31 14:02:14 2017] 127.0.0.1:50766 [200]: /main.js
+[Tue Oct 31 14:02:14 2017] 127.0.0.1:50767 [200]: /
+[Tue Oct 31 14:02:15 2017] 127.0.0.1:50770 [200]: /main.js
+[Tue Oct 31 14:02:15 2017] 127.0.0.1:50771 [200]: /
+[Tue Oct 31 14:02:15 2017] 127.0.0.1:50774 [200]: /main.js
+[Tue Oct 31 14:08:35 2017] 127.0.0.1:50775 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:08:36 2017] 127.0.0.1:50785 [200]: /
+[Tue Oct 31 14:08:36 2017] 127.0.0.1:50786 [200]: /main.js
+[Tue Oct 31 14:08:51 2017] 127.0.0.1:50787 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:08:51 2017] 127.0.0.1:50788 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:08:52 2017] 127.0.0.1:50815 [200]: /
+[Tue Oct 31 14:08:52 2017] 127.0.0.1:50816 [200]: /main.js
+[Tue Oct 31 14:09:04 2017] 127.0.0.1:50818 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:09:04 2017] 127.0.0.1:50817 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:09:04 2017] 127.0.0.1:50840 [200]: /
+[Tue Oct 31 14:09:05 2017] 127.0.0.1:50841 [200]: /main.js
+[Tue Oct 31 14:09:30 2017] 127.0.0.1:50842 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:09:30 2017] 127.0.0.1:50845 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:09:30 2017] 127.0.0.1:50888 [200]: /
+[Tue Oct 31 14:09:30 2017] 127.0.0.1:50889 [200]: /main.js
+[Tue Oct 31 14:09:53 2017] 127.0.0.1:50891 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:09:53 2017] 127.0.0.1:50890 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:09:53 2017] 127.0.0.1:50896 [200]: /
+[Tue Oct 31 14:09:53 2017] 127.0.0.1:50897 [200]: /main.js
+[Tue Oct 31 14:10:21 2017] 127.0.0.1:50898 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:10:21 2017] 127.0.0.1:50899 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:10:21 2017] 127.0.0.1:50936 [200]: /
+[Tue Oct 31 14:10:21 2017] 127.0.0.1:50937 [200]: /main.js
+[Tue Oct 31 14:10:50 2017] 127.0.0.1:50939 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:10:50 2017] 127.0.0.1:50938 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:10:50 2017] 127.0.0.1:50985 [200]: /
+[Tue Oct 31 14:10:50 2017] 127.0.0.1:50986 [200]: /main.js
+[Tue Oct 31 14:11:42 2017] 127.0.0.1:50988 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:11:42 2017] 127.0.0.1:50987 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:11:49 2017] 127.0.0.1:51072 [200]: /
+[Tue Oct 31 14:11:49 2017] 127.0.0.1:51073 [200]: /main.js
+[Tue Oct 31 14:15:17 2017] 127.0.0.1:51356 [200]: /
+[Tue Oct 31 14:15:18 2017] 127.0.0.1:51361 [200]: /main.js
+[Tue Oct 31 14:16:38 2017] 127.0.0.1:51362 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:16:39 2017] 127.0.0.1:51476 [200]: /
+[Tue Oct 31 14:16:40 2017] 127.0.0.1:51477 [200]: /main.js
+[Tue Oct 31 14:16:46 2017] 127.0.0.1:51478 [200]: /
+[Tue Oct 31 14:16:46 2017] 127.0.0.1:51479 [200]: /main.js
+[Tue Oct 31 14:17:53 2017] 127.0.0.1:51489 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:19:15 2017] 127.0.0.1:51516 [200]: /
+[Tue Oct 31 14:19:15 2017] 127.0.0.1:51517 [200]: /main.js
+[Tue Oct 31 14:19:17 2017] 127.0.0.1:51518 [200]: /
+[Tue Oct 31 14:19:17 2017] 127.0.0.1:51519 [200]: /main.js
+[Tue Oct 31 14:19:24 2017] 127.0.0.1:51523 [200]: /
+[Tue Oct 31 14:19:24 2017] 127.0.0.1:51534 [200]: /main.js
+[Tue Oct 31 14:19:40 2017] 127.0.0.1:51535 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:19:40 2017] 127.0.0.1:51562 [200]: /
+[Tue Oct 31 14:19:43 2017] 127.0.0.1:51563 [200]: /
+[Tue Oct 31 14:19:43 2017] 127.0.0.1:51564 [200]: /main.js
+[Tue Oct 31 14:20:10 2017] 127.0.0.1:51565 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:20:10 2017] 127.0.0.1:51611 [200]: /
+[Tue Oct 31 14:20:14 2017] 127.0.0.1:51612 [200]: /
+[Tue Oct 31 14:20:14 2017] 127.0.0.1:51613 [200]: /main.js
+[Tue Oct 31 14:20:49 2017] 127.0.0.1:51616 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:20:49 2017] 127.0.0.1:51670 [200]: /
+[Tue Oct 31 14:20:49 2017] 127.0.0.1:51672 [200]: /main.js
+[Tue Oct 31 14:21:32 2017] 127.0.0.1:51675 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:21:32 2017] 127.0.0.1:51734 [200]: /
+[Tue Oct 31 14:21:33 2017] 127.0.0.1:51738 [200]: /main.js
+[Tue Oct 31 14:22:21 2017] 127.0.0.1:51739 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:22:21 2017] 127.0.0.1:51809 [200]: /
+[Tue Oct 31 14:22:22 2017] 127.0.0.1:51811 [200]: /main.js
+[Tue Oct 31 14:23:35 2017] 127.0.0.1:51812 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:23:36 2017] 127.0.0.1:51913 [200]: /
+[Tue Oct 31 14:23:36 2017] 127.0.0.1:51915 [200]: /main.js
+[Tue Oct 31 14:25:44 2017] 127.0.0.1:51920 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:25:45 2017] 127.0.0.1:52103 [200]: /
+[Tue Oct 31 14:25:45 2017] 127.0.0.1:52104 [200]: /main.js
+[Tue Oct 31 14:26:01 2017] 127.0.0.1:52105 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:26:01 2017] 127.0.0.1:52108 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:26:01 2017] 127.0.0.1:52106 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:26:01 2017] 127.0.0.1:52124 [200]: /
+[Tue Oct 31 14:26:01 2017] 127.0.0.1:52125 [200]: /main.js
+[Tue Oct 31 14:26:23 2017] 127.0.0.1:52128 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:26:23 2017] 127.0.0.1:52126 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:26:23 2017] 127.0.0.1:52127 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:26:23 2017] 127.0.0.1:52133 [200]: /
+[Tue Oct 31 14:26:23 2017] 127.0.0.1:52134 [200]: /main.js
+[Tue Oct 31 14:26:41 2017] 127.0.0.1:52136 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:26:41 2017] 127.0.0.1:52135 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:26:41 2017] 127.0.0.1:52141 [200]: /
+[Tue Oct 31 14:26:41 2017] 127.0.0.1:52142 [200]: /main.js
+[Tue Oct 31 14:27:14 2017] 127.0.0.1:52143 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:27:14 2017] 127.0.0.1:52144 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:27:14 2017] 127.0.0.1:52157 [200]: /
+[Tue Oct 31 14:27:14 2017] 127.0.0.1:52158 [200]: /main.js
+[Tue Oct 31 14:29:42 2017] 127.0.0.1:52159 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:29:42 2017] 127.0.0.1:52160 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:29:54 2017] 127.0.0.1:52382 [200]: /
+[Tue Oct 31 14:29:54 2017] 127.0.0.1:52383 [200]: /main.js
+[Tue Oct 31 14:34:44 2017] 127.0.0.1:52386 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:34:44 2017] 127.0.0.1:52384 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:35:31 2017] 127.0.0.1:52845 [200]: /
+[Tue Oct 31 14:35:42 2017] 127.0.0.1:52848 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:35:42 2017] 127.0.0.1:52846 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:35:42 2017] 127.0.0.1:52847 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:35:42 2017] 127.0.0.1:52865 [200]: /
+[Tue Oct 31 14:35:42 2017] 127.0.0.1:52869 [200]: /main.js
+[Tue Oct 31 14:35:48 2017] 127.0.0.1:52871 [200]: /
+[Tue Oct 31 14:35:57 2017] 127.0.0.1:52882 [200]: /
+[Tue Oct 31 14:35:57 2017] 127.0.0.1:52883 [200]: /main.js
+[Tue Oct 31 14:38:00 2017] 127.0.0.1:53074 [200]: /
+[Tue Oct 31 14:38:01 2017] 127.0.0.1:53077 [200]: /main.js
+[Tue Oct 31 14:38:15 2017] 127.0.0.1:53079 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:38:15 2017] 127.0.0.1:53105 [200]: /
+[Tue Oct 31 14:38:15 2017] 127.0.0.1:53106 [200]: /main.js
+[Tue Oct 31 14:38:32 2017] 127.0.0.1:53107 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:38:32 2017] 127.0.0.1:53108 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:38:32 2017] 127.0.0.1:53137 [200]: /
+[Tue Oct 31 14:38:32 2017] 127.0.0.1:53138 [200]: /main.js
+[Tue Oct 31 14:38:42 2017] 127.0.0.1:53139 [200]: /
+[Tue Oct 31 14:38:42 2017] 127.0.0.1:53140 [200]: /main.js
+[Tue Oct 31 14:38:51 2017] 127.0.0.1:53158 [200]: /
+[Tue Oct 31 14:38:51 2017] 127.0.0.1:53173 [200]: /main.js
+[Tue Oct 31 14:39:07 2017] 127.0.0.1:53174 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:40:24 2017] 127.0.0.1:53303 [200]: /
+[Tue Oct 31 14:40:24 2017] 127.0.0.1:53306 [200]: /main.js
+[Tue Oct 31 14:41:01 2017] 127.0.0.1:53308 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:41:02 2017] 127.0.0.1:53363 [200]: /
+[Tue Oct 31 14:41:02 2017] 127.0.0.1:53365 [200]: /main.js
+[Tue Oct 31 14:41:19 2017] 127.0.0.1:53366 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:41:20 2017] 127.0.0.1:53396 [200]: /
+[Tue Oct 31 14:41:20 2017] 127.0.0.1:53397 [200]: /main.js
+[Tue Oct 31 14:41:50 2017] 127.0.0.1:53398 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:41:50 2017] 127.0.0.1:53400 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:41:50 2017] 127.0.0.1:53399 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:41:51 2017] 127.0.0.1:53447 [200]: /
+[Tue Oct 31 14:41:51 2017] 127.0.0.1:53448 [200]: /main.js
+[Tue Oct 31 14:42:08 2017] 127.0.0.1:53450 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:42:08 2017] 127.0.0.1:53449 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:42:08 2017] 127.0.0.1:53475 [200]: /
+[Tue Oct 31 14:42:08 2017] 127.0.0.1:53479 [200]: /main.js
+[Tue Oct 31 14:43:44 2017] 127.0.0.1:53480 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:43:44 2017] 127.0.0.1:53610 [200]: /
+[Tue Oct 31 14:43:44 2017] 127.0.0.1:53615 [200]: /main.js
+[Tue Oct 31 14:46:24 2017] 127.0.0.1:53617 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:46:24 2017] 127.0.0.1:53848 [200]: /
+[Tue Oct 31 14:46:24 2017] 127.0.0.1:53851 [200]: /main.js
+[Tue Oct 31 14:46:37 2017] 127.0.0.1:53852 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:46:37 2017] 127.0.0.1:53876 [200]: /
+[Tue Oct 31 14:46:37 2017] 127.0.0.1:53877 [200]: /main.js
+[Tue Oct 31 14:47:17 2017] 127.0.0.1:53880 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:47:17 2017] 127.0.0.1:53878 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:47:17 2017] 127.0.0.1:53879 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:47:17 2017] 127.0.0.1:53937 [200]: /
+[Tue Oct 31 14:47:18 2017] 127.0.0.1:53939 [200]: /main.js
+[Tue Oct 31 14:48:19 2017] 127.0.0.1:53942 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:48:19 2017] 127.0.0.1:54025 [200]: /
+[Tue Oct 31 14:48:19 2017] 127.0.0.1:54027 [200]: /main.js
+[Tue Oct 31 14:48:34 2017] 127.0.0.1:54028 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:48:34 2017] 127.0.0.1:54051 [200]: /
+[Tue Oct 31 14:48:35 2017] 127.0.0.1:54053 [200]: /main.js
+[Tue Oct 31 14:50:34 2017] 127.0.0.1:54054 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:50:34 2017] 127.0.0.1:54218 [200]: /
+[Tue Oct 31 14:50:35 2017] 127.0.0.1:54221 [200]: /main.js
+[Tue Oct 31 14:50:45 2017] 127.0.0.1:54223 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:51:55 2017] 127.0.0.1:54335 [200]: /
+[Tue Oct 31 14:51:56 2017] 127.0.0.1:54336 [200]: /main.js
+[Tue Oct 31 14:55:15 2017] 127.0.0.1:54617 [200]: /
+[Tue Oct 31 14:55:16 2017] 127.0.0.1:54618 [200]: /main.js
+[Tue Oct 31 14:55:26 2017] 127.0.0.1:54636 [200]: /
+[Tue Oct 31 14:55:27 2017] 127.0.0.1:54638 [200]: /main.js
+[Tue Oct 31 14:56:24 2017] 127.0.0.1:54641 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:58:06 2017] 127.0.0.1:54865 [200]: /
+[Tue Oct 31 14:58:06 2017] 127.0.0.1:54870 [200]: /main.js
+[Tue Oct 31 14:58:17 2017] 127.0.0.1:54871 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:59:05 2017] 127.0.0.1:54952 [200]: /
+[Tue Oct 31 14:59:18 2017] 127.0.0.1:54962 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:59:18 2017] 127.0.0.1:54963 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:59:18 2017] 127.0.0.1:54964 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:59:18 2017] 127.0.0.1:54965 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:59:18 2017] 127.0.0.1:54966 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:59:18 2017] 127.0.0.1:54985 [200]: /
+[Tue Oct 31 14:59:19 2017] 127.0.0.1:54989 [200]: /main.js
+[Tue Oct 31 14:59:32 2017] 127.0.0.1:54990 Invalid request (Unexpected EOF)
+[Tue Oct 31 14:59:32 2017] 127.0.0.1:55009 [200]: /
+[Tue Oct 31 14:59:33 2017] 127.0.0.1:55011 [200]: /main.js
+[Tue Oct 31 15:00:46 2017] 127.0.0.1:55012 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:24:05 2017] 127.0.0.1:56898 [200]: /
+[Tue Oct 31 15:24:06 2017] 127.0.0.1:56903 [200]: /main.js
+[Tue Oct 31 15:25:40 2017] 127.0.0.1:56905 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:33:52 2017] 127.0.0.1:57719 [200]: /
+[Tue Oct 31 15:33:52 2017] 127.0.0.1:57720 [200]: /main.js
+[Tue Oct 31 15:33:54 2017] 127.0.0.1:57723 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:33:54 2017] 127.0.0.1:57724 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:33:54 2017] 127.0.0.1:57721 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:33:54 2017] 127.0.0.1:57722 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:34:23 2017] 127.0.0.1:57770 [200]: /
+[Tue Oct 31 15:35:34 2017] 127.0.0.1:57771 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:35:36 2017] 127.0.0.1:57878 [200]: /
+[Tue Oct 31 15:35:36 2017] 127.0.0.1:57879 [200]: /main.js
+[Tue Oct 31 15:35:55 2017] 127.0.0.1:57883 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:35:55 2017] 127.0.0.1:57880 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:35:55 2017] 127.0.0.1:57881 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:35:55 2017] 127.0.0.1:57882 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:35:55 2017] 127.0.0.1:57892 [200]: /
+[Tue Oct 31 15:35:55 2017] 127.0.0.1:57893 [200]: /main.js
+[Tue Oct 31 15:36:20 2017] 127.0.0.1:57896 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:36:20 2017] 127.0.0.1:57894 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:36:20 2017] 127.0.0.1:57895 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:36:20 2017] 127.0.0.1:57907 [200]: /
+[Tue Oct 31 15:36:23 2017] 127.0.0.1:57908 [200]: /
+[Tue Oct 31 15:36:23 2017] 127.0.0.1:57909 [200]: /main.js
+[Tue Oct 31 15:36:40 2017] 127.0.0.1:57910 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:36:41 2017] 127.0.0.1:57915 [200]: /
+[Tue Oct 31 15:36:44 2017] 127.0.0.1:57916 [200]: /
+[Tue Oct 31 15:36:44 2017] 127.0.0.1:57917 [200]: /main.js
+[Tue Oct 31 15:36:55 2017] 127.0.0.1:57918 Invalid request (Unexpected EOF)
+[Tue Oct 31 15:36:56 2017] 127.0.0.1:57937 [200]: /
+[Tue Oct 31 15:36:56 2017] 127.0.0.1:57939 [200]: /main.js
+[Tue Oct 31 15:37:54 2017] 127.0.0.1:57940 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:12:46 2017] 127.0.0.1:58208 [200]: /
+[Tue Oct 31 16:12:46 2017] 127.0.0.1:58209 [200]: /main.js
+[Tue Oct 31 16:12:47 2017] 127.0.0.1:58211 [404]: /favicon.ico - No such file or directory
+[Tue Oct 31 16:13:41 2017] 127.0.0.1:58286 [200]: /
+[Tue Oct 31 16:13:41 2017] 127.0.0.1:58287 [200]: /main.js
+[Tue Oct 31 16:13:56 2017] 127.0.0.1:58289 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:13:56 2017] 127.0.0.1:58288 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:13:56 2017] 127.0.0.1:58316 [200]: /
+[Tue Oct 31 16:13:56 2017] 127.0.0.1:58317 [200]: /main.js
+[Tue Oct 31 16:15:04 2017] 127.0.0.1:58321 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:15:04 2017] 127.0.0.1:58318 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:15:04 2017] 127.0.0.1:58417 [200]: /
+[Tue Oct 31 16:15:04 2017] 127.0.0.1:58418 [200]: /main.js
+[Tue Oct 31 16:15:15 2017] 127.0.0.1:58419 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:15:15 2017] 127.0.0.1:58423 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:15:18 2017] 127.0.0.1:58446 [200]: /
+[Tue Oct 31 16:15:18 2017] 127.0.0.1:58447 [200]: /main.js
+[Tue Oct 31 16:15:36 2017] 127.0.0.1:58451 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:15:36 2017] 127.0.0.1:58448 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:15:37 2017] 127.0.0.1:58480 [200]: /
+[Tue Oct 31 16:15:37 2017] 127.0.0.1:58481 [200]: /main.js
+[Tue Oct 31 16:15:57 2017] 127.0.0.1:58482 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:15:57 2017] 127.0.0.1:58483 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:15:57 2017] 127.0.0.1:58514 [200]: /
+[Tue Oct 31 16:15:58 2017] 127.0.0.1:58516 [200]: /main.js
+[Tue Oct 31 16:16:40 2017] 127.0.0.1:58517 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:16:40 2017] 127.0.0.1:58580 [200]: /
+[Tue Oct 31 16:16:40 2017] 127.0.0.1:58581 [200]: /main.js
+[Tue Oct 31 16:18:37 2017] 127.0.0.1:58583 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:18:37 2017] 127.0.0.1:58582 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:21:55 2017] 127.0.0.1:59037 [200]: /
+[Tue Oct 31 16:21:55 2017] 127.0.0.1:59038 [200]: /main.js
+[Tue Oct 31 16:22:07 2017] 127.0.0.1:59043 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:22:07 2017] 127.0.0.1:59039 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:22:07 2017] 127.0.0.1:59065 [200]: /
+[Tue Oct 31 16:22:07 2017] 127.0.0.1:59066 [200]: /main.js
+[Tue Oct 31 16:23:25 2017] 127.0.0.1:59067 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:23:25 2017] 127.0.0.1:59068 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:45:43 2017] 127.0.0.1:60986 [200]: /
+[Tue Oct 31 16:45:43 2017] 127.0.0.1:60987 [200]: /main.js
+[Tue Oct 31 16:45:54 2017] 127.0.0.1:60988 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:45:54 2017] 127.0.0.1:60990 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:45:58 2017] 127.0.0.1:61016 [200]: /
+[Tue Oct 31 16:45:59 2017] 127.0.0.1:61017 [200]: /main.js
+[Tue Oct 31 16:46:19 2017] 127.0.0.1:61021 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:46:19 2017] 127.0.0.1:61018 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:46:19 2017] 127.0.0.1:61052 [200]: /
+[Tue Oct 31 16:46:19 2017] 127.0.0.1:61053 [200]: /main.js
+[Tue Oct 31 16:48:33 2017] 127.0.0.1:61055 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:48:33 2017] 127.0.0.1:61054 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:48:33 2017] 127.0.0.1:61231 [200]: /
+[Tue Oct 31 16:48:34 2017] 127.0.0.1:61232 [200]: /main.js
+[Tue Oct 31 16:48:39 2017] 127.0.0.1:61233 [200]: /
+[Tue Oct 31 16:48:39 2017] 127.0.0.1:61234 [200]: /main.js
+[Tue Oct 31 16:48:48 2017] 127.0.0.1:61245 [200]: /
+[Tue Oct 31 16:48:48 2017] 127.0.0.1:61261 [200]: /main.js
+[Tue Oct 31 16:49:29 2017] 127.0.0.1:61262 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:49:30 2017] 127.0.0.1:61324 [200]: /
+[Tue Oct 31 16:49:30 2017] 127.0.0.1:61325 [200]: /main.js
+[Tue Oct 31 16:49:48 2017] 127.0.0.1:61326 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:49:48 2017] 127.0.0.1:61327 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:50:50 2017] 127.0.0.1:61524 [200]: /
+[Tue Oct 31 16:50:50 2017] 127.0.0.1:61525 [200]: /main.js
+[Tue Oct 31 16:51:00 2017] 127.0.0.1:61527 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:51:00 2017] 127.0.0.1:61526 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:52:03 2017] 127.0.0.1:61649 [200]: /
+[Tue Oct 31 16:52:03 2017] 127.0.0.1:61650 [200]: /main.js
+[Tue Oct 31 16:53:05 2017] 127.0.0.1:61651 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:53:05 2017] 127.0.0.1:61653 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:53:06 2017] 127.0.0.1:61744 [200]: /
+[Tue Oct 31 16:53:06 2017] 127.0.0.1:61745 [200]: /main.js
+[Tue Oct 31 16:55:54 2017] 127.0.0.1:61746 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:55:54 2017] 127.0.0.1:61747 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:55:54 2017] 127.0.0.1:61976 [200]: /
+[Tue Oct 31 16:55:55 2017] 127.0.0.1:61977 [200]: /main.js
+[Tue Oct 31 16:56:05 2017] 127.0.0.1:61978 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:56:05 2017] 127.0.0.1:61980 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:56:20 2017] 127.0.0.1:62026 [200]: /
+[Tue Oct 31 16:56:20 2017] 127.0.0.1:62027 [200]: /main.js
+[Tue Oct 31 16:59:02 2017] 127.0.0.1:62028 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:59:02 2017] 127.0.0.1:62029 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:59:26 2017] 127.0.0.1:62293 [200]: /
+[Tue Oct 31 16:59:29 2017] 127.0.0.1:62294 [200]: /main.js
+[Tue Oct 31 16:59:37 2017] 127.0.0.1:62296 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:59:37 2017] 127.0.0.1:62295 Invalid request (Unexpected EOF)
+[Tue Oct 31 16:59:37 2017] 127.0.0.1:62320 [200]: /
+[Tue Oct 31 16:59:38 2017] 127.0.0.1:62321 [200]: /main.js
+[Tue Oct 31 17:04:45 2017] 127.0.0.1:62736 [200]: /
+[Tue Oct 31 17:04:45 2017] 127.0.0.1:62737 [200]: /main.js
+[Tue Oct 31 17:04:56 2017] 127.0.0.1:62740 Invalid request (Unexpected EOF)
+[Tue Oct 31 17:04:56 2017] 127.0.0.1:62738 Invalid request (Unexpected EOF)
+[Tue Oct 31 17:05:06 2017] 127.0.0.1:62775 [200]: /
+[Tue Oct 31 17:05:06 2017] 127.0.0.1:62776 [200]: /main.js
+[Tue Oct 31 17:05:13 2017] 127.0.0.1:62777 [200]: /
+[Tue Oct 31 17:05:13 2017] 127.0.0.1:62778 [200]: /main.js
+[Tue Oct 31 17:06:47 2017] 127.0.0.1:62932 [200]: /
+[Tue Oct 31 17:06:48 2017] 127.0.0.1:62933 [200]: /main.js
+[Tue Oct 31 17:07:13 2017] 127.0.0.1:62935 Invalid request (Unexpected EOF)
+[Tue Oct 31 17:07:13 2017] 127.0.0.1:62934 Invalid request (Unexpected EOF)
+[Tue Oct 31 17:07:14 2017] 127.0.0.1:62978 [200]: /
+[Tue Oct 31 17:07:15 2017] 127.0.0.1:62979 [200]: /main.js
+[Tue Oct 31 17:07:37 2017] 127.0.0.1:63015 [200]: /
+[Tue Oct 31 17:07:39 2017] 127.0.0.1:63016 [200]: /main.js
+[Tue Oct 31 17:08:31 2017] 127.0.0.1:63091 [200]: /
+[Tue Oct 31 17:08:34 2017] 127.0.0.1:63092 [200]: /main.js
