@@ -5,108 +5,32 @@ document.body.appendChild(canvas);
 const ctx = canvas.getContext("2d");
 const particles = [];
 
-const swapRow = (m, i, j) => {
-    for (let k = 0; k < m.length; k++) {
-        const tmp = m[i][k];
-        m[i][k] = m[j][k];
-        m[j][k] = tmp;
-    }
-}
-
-const copy = m => {
-    const ans = [];
-    for (let i = 0; i < m.length; i++) {
-        const ansi = [];
-        for (let j = 0; j < m[i].length; j++) {
-            ansi.push(m[i][j]);
-        }
-        ans.push(ansi);
-    }
-    return ans;
-}
-
-const printMatrix = m => {
-    let str = "";
-    m.forEach(mi => {
-        mi.forEach(mij => {
-            str += mij + ", ";
-        });
-        str += "\n";
-    });
-    console.log(str);
-}
-
-const hakidashi = m => {
-    //printMatrix(m);
-    for (let i = 0; i < m.length; i++) {
-        let a = 0;
-        for (let j = i; j < m.length; j++) {
-            if (Math.abs(m[j][i]) > 1e-4 ) {
-                a = m[j][i];
-                if (i != j) {
-                    swapRow(m, i, j);
-                }
-                break;
-            }
-        }
-        if (a == 0) return -1;
-        for (let j = i; j < m[i].length; j++) {
-            m[i][j] /= a;
-        }
-        for (let j = 0; j < m.length; j++) {
-            if (i == j) continue;
-            const b = m[j][i];
-            for (let k = i; k < m[j].length; k++) {
-                m[j][k] -= b * m[i][k];
-            }
-        }
-        //printMatrix(m);
-    }
-    return m;
+const env = {
+    dt : 1,
+    nyu : 0,
+    rho0 : 1,
+    r : 4,
+    re : 10,
+    d : 2,
+    alpha : 0.5,
+    l : 8,
+    g : 0,
+    iter : 100
 };
 
-
-const a = Math.random();
-const b = Math.random();
-const c = Math.random();
-const d = -a -b-c;
-const po = [
-    [a,b,c,d],
-    [b,a,d,c],
-    [c,d,a,b],
-    [d,c,b,a]
-];
-
-//console.log(hakidashi(copy(po)));
-
-const env = {};
-
 const init = particles => {
-    env.dt = 0.016;
-    env.nyu = 0.01;
-    env.rho0 = 0.01;
-    env.r = 4;
-    env.re = 30;
-    env.d = 2;
-    env.n0 = average(particles.map(p => p.calcN(particles)));
-    env.lambda = average(particles.map(p => p.calcLambda(particles)));
+    env.n0 = particles.map(p => sum(particles.filter(p2 => p != p2).map(p2 => weight(distance(p, p2))))).reduce((a,b) => a > b ? a : b);
+    env.lambda = particles.map(p => sum(particles.filter(p2 => p != p2).map(p2 => distanceSq(p, p2) * weight(distance(p, p2)))) / sum(particles.filter(p2 => p != p2).map(p2 => weight(distance(p, p2))))).reduce((a,b) => a > b ? a : b);
     env.particles = particles;
-    particles.forEach(p => p.frc.y = 9.8);
+    particles.forEach(p => p.frc.y = env.g);
 };
 
 const render = () => {
     requestAnimationFrame(render);
-    particles.forEach(p => p.step(env));
-    const m = particles.map(p => p.makeRow(env));
-    const mLast = [1];
-    for (let i = 0; i < particles.length; i++) mLast.push(0);
-    m.push(mLast);
-    hakidashi(m);
-    for (let i = 0; i < particles.length; i++) {
-        const mi = m[i];
-        if (Math.abs(mi[i] - 1) < 1e-2) {
-            particles[i].pressure = mi[mi.length-1];
-        }
+    //particles.forEach(p => p.step(env));
+    particles.forEach(p => p.pressure = 0);
+    for (let i = 0; i < env.iter; i++) {
+        particles.forEach(p => p.solvePressure(env));
     }
     particles.forEach(p => p.step2(env));
 
@@ -160,14 +84,6 @@ const makeParticle = (x,y) => {
             if (o.vel.y > 0) o.vel.y = -o.vel.y;
         }
     };
-    o.calcN = particles => {
-        return sum(particles.filter(p => p != o).map(p => weight(distance(o,p))));
-    };
-    o.calcLambda = (particles) => {
-        const denom = o.calcN(particles);
-        if (denom == 0) return 1;
-        return sum(particles.map(p => distanceSq(o,p) * weight(distance(o,p)))) / denom;
-    };
     o.step = (env) => {
         const laplacianVelX = 2 * env.d / env.lambda / env.n0 * sum(env.particles.map(p => (p.vel.x - o.vel.x) * weight(distance(o,p))));
         const laplacianVelY = 2 * env.d / env.lambda / env.n0 * sum(env.particles.map(p => (p.vel.y - o.vel.y) * weight(distance(o,p))));
@@ -181,17 +97,13 @@ const makeParticle = (x,y) => {
         };
         o.checkWall();
     };
-    o.makeRow = env => {
-        const row = env.particles.map(p => {
-            if (p === o) return -sum(env.particles.map(p2 => weight(distance(o,p2))));
-            else return weight(distance(o,p));
-        });
-        const n = sum(env.particles.filter(p => p != o).map(p => weight(p, o)));
-        row.push(-env.rho0 * env.lambda * (n - env.n0) / (2 * env.d * env.dt * env.dt));
-        return row;
-    };
-    o.updateDensity = (particles) => {
-        o.density = o.calcDensity(particles);
+    o.solvePressure = (env) => {
+        const n = sum(env.particles.filter(p => p != o).map(p => weight(distance(o,p))));
+        if (n == 0) {
+            o.pressure = 0;
+            return;
+        }
+        o.pressure = (sum(env.particles.filter(p => p != o).map(p => p.pressure * weight(distance(o,p)))) + env.alpha * env.rho0 * env.lambda * (n - env.n0) / (2 * env.d * env.dt * env.dt)) / n;
     };
     o.step2 = (env) => {
         const gradPressureX = env.d / env.n0 * sum(env.particles.filter(p => p != o).map(p => (p.pressure - o.pressure) / distanceSq(o,p) * (p.pos.x - o.pos.x) * weight(distance(o,p))));
@@ -215,8 +127,8 @@ const makeParticle = (x,y) => {
 
 for (let i = 0; i < 10; i++) {
     for (let j = 0; j < 10; j++) {
-        const x = 200 + i * 10;
-        const y = 200 + j * 10;
+        const x = 200 + i * env.l;
+        const y = 200 + j * env.l;
         particles.push(makeParticle(x,y));
     }
 }
