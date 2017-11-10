@@ -28,16 +28,44 @@ const init = particles => {
     particles.forEach(p => p.frc.y = env.g);
 };
 
+const W = 700;
+const H = 700;
+const nW = Math.ceil(W / env.re);
+const nH = Math.ceil(H / env.re);
+
+const grid = [];
+for (let i = 0; i < nW; i++) {
+    const po = [];
+    for (let j = 0; j < nH; j++) {
+        po.push([]);
+    }
+    grid.push(po);
+}
+
+const clearGrid = () => {
+    for (let i = 0; i < nW; i++) {
+        for (let j = 0; j < nH; j++) {
+            grid[i][j] = [];
+        }
+    }
+};
+
 const render = () => {
     requestAnimationFrame(render);
     for (let k = 0; k < 3; k++) {
-        particles.forEach(p => p.step(env, particleAndInnerAndOuters));
-        particleAndInners.forEach(p => p.prepare());
+        clearGrid();
+        particleAndInners.forEach(p => p.registerGrid());
+        particles.forEach(p => p.prepareStep());
+        particles.forEach(p => p.step());
+        //clearGrid();
+        //particleAndInners.forEach(p => p.registerGrid());
+        particleAndInners.forEach(p => p.prepareSolvePressure());
         const candidates = particleAndInners.filter(p => !p.isSurface);
         for (let i = 0; i < env.iter; i++) {
-            candidates.forEach(p => p.solvePressure(env, particleAndInnerAndOuters));
+            candidates.forEach(p => p.solvePressure());
         }
-        particles.forEach(p => p.step2(env, particleAndInnerAndOuters));
+        particles.forEach(p => p.prepareStep2());
+        particles.forEach(p => p.step2());
     }
     ctx.fillStyle = "black";
     ctx.fillRect(0,0,20000,20000);
@@ -91,83 +119,78 @@ const makeParticle = (x,y) => {
             o.vel.y *= env.lv / v;
         }
     };
-    o.step = (env, particles) => {
-        const ps = particles.filter(p => p != o);
-        const laplacianVelX = 2 * env.d / env.lambda / env.n0 * sum(ps.map(p => (p.vel.x - o.vel.x) * weight(o,p)));
-        const laplacianVelY = 2 * env.d / env.lambda / env.n0 * sum(ps.map(p => (p.vel.y - o.vel.y) * weight(o,p)));
-        o.vel.x += env.dt * (env.nyu * laplacianVelX + o.frc.x);
-        o.vel.y += env.dt * (env.nyu * laplacianVelY + o.frc.y);
+    o.registerGrid = () => {
+        const nx = Math.max(0, Math.min(nW-1, Math.floor(o.pos.x / env.re)));
+        const ny = Math.max(0, Math.min(nH-1, Math.floor(o.pos.y / env.re)));
+        grid[nx][ny].push(o);
+    };
+    o.prepareStep = () => {
+        const ps = particleAndInnerAndOuters.filter(p => p != o);
+        o.laplacianVelX = 2 * env.d / env.lambda / env.n0 * sum(ps.map(p => (p.vel.x - o.vel.x) * weight(o,p)));
+        o.laplacianVelY = 2 * env.d / env.lambda / env.n0 * sum(ps.map(p => (p.vel.y - o.vel.y) * weight(o,p)));
+    }
+    o.step = () => {
+        o.vel.x += env.dt * (env.nyu * o.laplacianVelX + o.frc.x);
+        o.vel.y += env.dt * (env.nyu * o.laplacianVelY + o.frc.y);
         o.checkVel();
         o.pos.x += env.dt * o.vel.x;
         o.pos.y += env.dt * o.vel.y;
     };
-    o.prepare = () => {
-        o.nears = particleAndInners.filter(p => p != o).filter(p => distance(o,p) <= env.re);
-        o.weights = o.nears.map(p => {return {p:p,w:weight(o,p)};});
-        o.n = sum(o.nears.map(p => weight(o,p)));
-        o.a = -2 * env.d / (env.lambda * env.n0) * o.n;
-        o.c = -env.alpha * env.rho0 * (o.n - env.n0) / (env.dt * env.dt * env.n0);
+    o.getNears = () => {
+        const nx = Math.max(0, Math.min(nW-1, Math.floor(o.pos.x / env.re)));
+        const ny = Math.max(0, Math.min(nH-1, Math.floor(o.pos.y / env.re)));
+        const nears = [];
+        for (let i = -1; i <= 1; i++) {
+            if (nx+i < 0) continue;
+            if (nx+i >= nW) continue;
+            for (let j = -1; j <= 1; j++) {
+                if (ny+j < 0) continue;
+                if (ny+j >= nH) continue;
+                grid[nx+i][ny+j].forEach(p => {
+                    if (o == p) return;
+                    if (distance(o,p) > env.re) return;
+                    nears.push(p);
+                });
+            }
+        }
+        return nears;
+        //return particleAndInners.filter(p => p != o && distance(o,p) <= env.re);
+    }
+    o.prepareSolvePressure = () => {
+        const nears = o.getNears();
+        o.weights = nears.map(p => {return {p:p,w:weight(o,p)};});
+        o.n = sum(nears.map(p => weight(o,p)));
+        o.c = -env.alpha * env.rho0 * (o.n - env.n0) * env.lambda * env.n0 / (env.dt * env.dt * env.n0 * 2 * env.d);
         o.isSurface = o.n < env.beta * env.n0;
         if (o.isSurface) {
             o.pressure = 0;
         }
     };
-    o.solvePressure = (env, particles) => {
+    o.solvePressure = () => {
         // ap + b = c
-        const b = +2 * env.d / (env.lambda * env.n0) * sum(o.weights.map(w => w.p.pressure * w.w));
-        o.pressure = (o.c - b) / o.a;
+        const b = sum(o.weights.map(w => w.p.pressure * w.w));
+        o.pressure = (b - o.c) / o.n;
     };
-    o.step2 = (env) => {
+    o.prepareStep2 = () => {
+        //let minP = o.pressure;
+        //if (o.nears.length > 0)
+        //    o.nears.map(p => p.pressure).reduce((a,b) => a < b ? a : b);
         const ps = particleAndInners.filter(p => p != o);
         const minP = particleAndInners.filter(p => distance(o,p) < env.re).map(p => p.pressure).reduce((a,b) => a < b ? a : b);
-        const gradPressureX = env.d / env.n0 * sum(ps.map(p => (p.pressure - minP) / distanceSq(o,p) * (p.pos.x - o.pos.x) * weight(o,p)));
-        const gradPressureY = env.d / env.n0 * sum(ps.map(p => (p.pressure - minP) / distanceSq(o,p) * (p.pos.y - o.pos.y) * weight(o,p)));
+        o.gradPressureX = env.d / env.n0 * sum(ps.map(p => (p.pressure - minP) / distanceSq(o,p) * (p.pos.x - o.pos.x) * weight(o,p)));
+        o.gradPressureY = env.d / env.n0 * sum(ps.map(p => (p.pressure - minP) / distanceSq(o,p) * (p.pos.y - o.pos.y) * weight(o,p)));
+    };
+    o.step2 = () => {
+        o.prepareStep2();
         const vx = o.vel.x;
         const vy = o.vel.y;
-        const fixVelX = -env.dt * gradPressureX / env.rho0;
-        const fixVelY = -env.dt * gradPressureY / env.rho0;
+        const fixVelX = -env.dt * o.gradPressureX / env.rho0;
+        const fixVelY = -env.dt * o.gradPressureY / env.rho0;
         o.vel.x += fixVelX;
         o.vel.y += fixVelY;
         o.checkVel();
         o.pos.x += env.dt * (o.vel.x - vx);
         o.pos.y += env.dt * (o.vel.y - vy);
-    };
-    o.render = ctx => {
-        const t = (o.pressure / 40 + 20) * 2 * Math.PI;
-        const r = Math.floor((Math.sin(t) * .5 + .5) * 255);
-        const g = Math.floor((Math.sin(t + Math.PI * 2 / 3) * .5 + .5) * 255);
-        const b = Math.floor((Math.sin(t - Math.PI * 2 / 3) * .5 + .5) * 255);
-        ctx.fillStyle = "rgb(" + r + ", " + g + ", " + b + ")";
-        ctx.beginPath();
-        ctx.arc(o.pos.x, o.pos.y, env.r, 0, 2 * Math.PI, true);
-        ctx.fill();
-    };
-    return o;
-};
-
-const makeInnerWall = (x,y) => {
-    const o = {
-        pos: {x:x, y:y},
-        vel: {x:0, y:0},
-        frc: {x:0, y:0},
-        pressure: 0,
-        type : "InnerWall"
-    };
-    o.prepare = () => {
-        o.nears = particleAndInners.filter(p => p != o).filter(p => distance(o,p) <= env.re);
-        o.weights = o.nears.map(p => {return {p:p,w:weight(o,p)};});
-        o.n = sum(o.nears.map(p => weight(o,p)));
-        o.a = -2 * env.d / (env.lambda * env.n0) * o.n;
-        o.c = -env.alpha * env.rho0 * (o.n - env.n0) / (env.dt * env.dt * env.n0);
-        o.isSurface = o.n < env.beta * env.n0;
-        if (o.isSurface) {
-            o.pressure = 0;
-        }
-    };
-    o.solvePressure = (env, particles) => {
-        // ap + b = c
-        const b = +2 * env.d / (env.lambda * env.n0) * sum(o.weights.map(w => w.p.pressure * w.w));
-        o.pressure = (o.c - b) / o.a;
     };
     o.render = ctx => {
         const t = (o.pressure / 40 + 20) * 2 * Math.PI;
@@ -200,36 +223,26 @@ const makeOuterWall = (x,y) => {
 };
 
 const particles = [];
-const bn = 3;
-for (let i = 0; i < 6; i++) {
-    for (let j = 0; j < 6; j++) {
-        const x = 250 + i * env.l + env.l/2;
-        const y = 150 + j * env.l;
-        //particles.push(makeParticle(x,y));
-        //particles[particles.length-1].vel.x = 3;
-    }
-}
 for (let i = 0; i < 4; i++) {
     for (let j = 0; j < 20; j++) {
         const x = 150 + i * env.l + env.l/2;
         const y = env.bottom - (j+1) * env.l;
         particles.push(makeParticle(x,y));
-        //particles[particles.length-1].vel.x = 3;
     }
 }
 const inners = [];
 const outers = [];
 const po = Math.ceil(env.re / env.l) * 2;
 for (let y = 300; y <= env.bottom; y += env.l/1.1) {
-    inners.push(makeInnerWall(env.left, y));
-    inners.push(makeInnerWall(env.right, y));
+    inners.push(makeParticle(env.left, y));
+    inners.push(makeParticle(env.right, y));
     for (let dx = env.l; dx <= env.l * po; dx += env.l/1.1) {
         outers.push(makeOuterWall(env.left - dx, y));
         outers.push(makeOuterWall(env.right + dx, y));
     }
 }
 for (let x = env.left+env.l; x < env.right; x += env.l/1.1) {
-    inners.push(makeInnerWall(x, env.bottom));
+    inners.push(makeParticle(x, env.bottom));
 }
 for (let x = env.left-env.l * po; x <= env.right + env.l * po; x += env.l/1.1) {
     for (let dy = env.l; dy <= env.l * po; dy += env.l/1.1) {
