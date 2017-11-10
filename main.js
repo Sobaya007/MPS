@@ -9,9 +9,9 @@ const env = {
     nyu : 0,
     rho0 : 1,
     r : 4,
-    re : 20,
+    re : 11,
     d : 2,
-    alpha : 1,
+    alpha : 0.1,
     beta : 0.96,
     l : 10,
     g : 1.1,
@@ -76,6 +76,9 @@ const makeParticle = (x,y) => {
             o.vel.y *= env.lv / v;
         }
     };
+    o.calcN = () => {
+        return sum(particleAndInners.map(p => weight(o,p)));
+    };
     o.step = (env, particles) => {
         const ps = particles.filter(p => p != o);
         const laplacianVelX = 2 * env.d / env.lambda / env.n0 * sum(ps.map(p => (p.vel.x - o.vel.x) * weight(o,p)));
@@ -116,7 +119,15 @@ const makeParticle = (x,y) => {
         o.pos.y += env.dt * (o.vel.y - vy);
     };
     o.render = ctx => {
-        ctx.fillStyle = "white";
+        const ps = particleAndInners.filter(p => p != o);
+        const n = sum(ps.map(p => weight(o,p)));
+        if (n < env.beta * env.n0) {
+            ctx.fillStyle = "cyan";
+        } else if (n == env.n0) {
+            ctx.fillStyle = "white";
+        } else {
+            ctx.fillStyle = "red";
+        }
         ctx.beginPath();
         ctx.arc(o.pos.x, o.pos.y, env.r, 0, 2 * Math.PI, true);
         ctx.fill();
@@ -176,7 +187,7 @@ const particles = [];
 for (let i = 0; i < 10; i++) {
     for (let j = 0; j < 10; j++) {
         const x = 150 + i * env.l;
-        const y = 250 + j * env.l;
+        const y = 350 + j * env.l;
         particles.push(makeParticle(x,y));
     }
 }
