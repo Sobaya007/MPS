@@ -8,7 +8,7 @@ uniform sampler2D backgroundTexture;
 
 void main() {
     vec4 kernel = texture2D(kernelTexture, uv);
-    if (kernel.a < 0.1) {
+    if (kernel.a < 0.04) {
         discard;
     }
     vec3 ray = normalize(vec3(1,-1,1));

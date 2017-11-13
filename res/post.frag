@@ -8,7 +8,7 @@ uniform sampler2D backgroundTexture;
 
 void main() {
     vec4 kernel = texture2D(kernelTexture, uv);
-    if (kernel.a < 0.1) {
+    if (kernel.a < 0.04) {
         gl_FragColor = texture2D(backgroundTexture, vec2(uv.x, 1. - uv.y)) * 0.5;
         return;
     }
