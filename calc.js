@@ -2,7 +2,7 @@ const makeCalculator = () => {
     const o = {};
 
     // Place Particles
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 30; j++) {
             const x = 110 + i * env.l + env.l/2;
             const y = env.bottom - (j+1) * env.l;

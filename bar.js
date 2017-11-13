@@ -187,5 +187,35 @@ var Bar = {
         render();
         gl.bindFramebuffer(gl.FRAMEBUFFER, null);
         return renderTarget.texture;
+    },
+    setOnMouseDown : callback => {
+        document.addEventListener("mousedown", event => {
+            const dx = (window.innerWidth  - Bar.viewportSize) / 2;
+            const dy = (window.innerHeight - Bar.viewportSize) / 2;
+            callback({
+                x : (event.clientX - dx) / Bar.viewportSize * 2 - 1,
+                y : (event.clientY - dy) / Bar.viewportSize * 2 - 1
+            });
+        });
+    },
+    setOnMouseUp : callback => {
+        document.addEventListener("mouseup", event => {
+            const dx = (window.innerWidth  - Bar.viewportSize) / 2;
+            const dy = (window.innerHeight - Bar.viewportSize) / 2;
+            callback({
+                x : (event.clientX - dx) / Bar.viewportSize * 2 - 1,
+                y : (event.clientY - dy) / Bar.viewportSize * 2 - 1
+            });
+        });
+    },
+    setOnMouseMove : callback => {
+        document.addEventListener("mousemove", event => {
+            const dx = (window.innerWidth  - Bar.viewportSize) / 2;
+            const dy = (window.innerHeight - Bar.viewportSize) / 2;
+            callback({
+                x : (event.clientX - dx) / Bar.viewportSize * 2 - 1,
+                y : (event.clientY - dy) / Bar.viewportSize * 2 - 1
+            });
+        });
     }
 };
