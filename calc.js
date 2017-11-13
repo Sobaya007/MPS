@@ -28,6 +28,8 @@ const makeCalculator = () => {
             outers.push(makeParticle(x, env.bottom + dy));
         }
     }
+    inners.forEach(p => grid.registerWall(p));
+    outers.forEach(p => grid.registerWall(p));
 
     // Calc Environment Value
     env.n0 = particles.map(p => sum(particles.filter(p2 => p != p2).map(p2 => weight(p, p2)))).reduce((a,b) => a > b ? a : b);
@@ -35,13 +37,11 @@ const makeCalculator = () => {
 
     o.step = () => {
         grid.clear();
-        particles.forEach(p => grid.register(p));
-        inners.forEach(p => grid.register(p));
+        particles.forEach(p => grid.registerParticle(p));
         particles.forEach(p => p.prepareStep());
         particles.forEach(p => p.step());
         grid.clear();
-        particles.forEach(p => grid.register(p));
-        inners.forEach(p => grid.register(p));
+        particles.forEach(p => grid.registerParticle(p));
         particles.forEach(p => p.prepareSolvePressure());
         inners.forEach(p => p.prepareSolvePressure());
         const candidates = particles.concat(inners).filter(p => !p.isSurface);
