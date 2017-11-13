@@ -5,7 +5,7 @@ uniform vec2 center; //[px]
 varying vec2 uv;
 
 vec2 conv(vec2 px) {
-    vec2 res = px / windowSize * 2. - 1.;
+    vec2 res = px / windowSize * 2. * 1.5 - 1.;
     res.y = -res.y;
     return res;
 }

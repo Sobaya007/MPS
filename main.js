@@ -6,8 +6,9 @@ Bar.init();
 
 Promise.all([
     Bar.createProgram("p.vert", "p.frag"),
-    Bar.createProgram("normal.vert", "normal.frag"),
+    Bar.createProgram("p.vert", "normal.frag"),
     Bar.createProgram("post.vert", "post.frag"),
+    Bar.createProgram("post.vert", "postWall.frag"),
     Bar.createAttribute([
         [0,0],
         [0,1],
@@ -15,13 +16,14 @@ Promise.all([
         [1,1]
     ]),
     Bar.createRenderTarget(),
-    Bar.createRenderTarget()
-]).then(([pProg, nProg, postProg, pAttr, renderTarget, normalRenderTarget]) => {
+    Bar.createRenderTarget(),
+    Bar.loadImage("back.jpg")
+]).then(([pProg, nProg, postProg, postWallProg, pAttr, renderTarget, normalRenderTarget, backTexture]) => {
     const env = {
         dt : 1,
         nu : 0.1,
         rho0 : 1,
-        r : 12,
+        r : 20,
         re : 14,
         d : 2,
         alpha : 0.1,
@@ -32,7 +34,7 @@ Promise.all([
         lv : 3,
         left : 100,
         right : 500,
-        bottom : 500
+        bottom : 400
     };
 
     Bar.attributes(pProg, {
@@ -54,7 +56,16 @@ Promise.all([
     });
     Bar.uniformTextures(postProg, {
         kernelTexture : renderTarget.texture,
-        normalTexture : normalRenderTarget.texture
+        normalTexture : normalRenderTarget.texture,
+        backgroundTexture : backTexture
+    });
+    Bar.attributes(postWallProg, {
+        pos : pAttr
+    });
+    Bar.uniformTextures(postWallProg, {
+        kernelTexture : renderTarget.texture,
+        normalTexture : normalRenderTarget.texture,
+        backgroundTexture : backTexture
     });
 
     const init = particles => {
@@ -120,24 +131,38 @@ Promise.all([
             gl.clear(gl.COLOR_BUFFER_BIT);
             gl.enable(gl.BLEND);
             gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
-            gl.blendEquation(gl.ADD);
-            particleAndInnerAndOuters.forEach(p => p.render());
+            particles.forEach(p => p.render());
         });
         Bar.renderTo(normalRenderTarget, () => {
             gl.clearColor(0,0,0,0);
             gl.clear(gl.COLOR_BUFFER_BIT);
             gl.enable(gl.BLEND);
             gl.blendFunc(gl.ONE, gl.ONE);
-            gl.blendEquation(gl.MAX);
-            particleAndInnerAndOuters.forEach(p => p.renderNormal());
+            particles.forEach(p => p.renderNormal());
         });
         gl.clearColor(0,0,0,1);
         gl.clear(gl.COLOR_BUFFER_BIT);
         gl.useProgram(postProg);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-        for (let i = 0; i < 255; i++) {
-            //render2(10,10 + i*2, i / 255);
-        }
+
+        Bar.renderTo(renderTarget, () => {
+            gl.clearColor(0,0,0,0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.enable(gl.BLEND);
+            gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+            inners.forEach(p => p.render());
+        });
+        Bar.renderTo(normalRenderTarget, () => {
+            gl.clearColor(0,0,0,0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.enable(gl.BLEND);
+            gl.blendFunc(gl.ONE, gl.ONE);
+            inners.forEach(p => p.renderNormal());
+        });
+        //gl.disable(gl.BLEND);
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+        gl.useProgram(postWallProg);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     };
 
     const weight = (p,p2) => {
@@ -266,34 +291,20 @@ Promise.all([
             });
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         };
-        return o;
-    };
-
-    const makeOuterWall = (x,y) => {
-        const o = {
-            pos: {x:x, y:y},
-            vel: {x:0, y:0},
-            frc: {x:0, y:0},
-            pressure: 0,
-            type : "OuterWall"
-        };
-        o.render = ctx => {
-            gl.useProgram(pProg);
-            Bar.uniforms(pProg, {
+        o.renderWall = () => {
+            gl.useProgram(wProg);
+            Bar.uniforms(wProg, {
                 center : [o.pos.x, o.pos.y],
-                color : [0,1,0],
-                isSurface : 0
             });
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         };
-        o.renderNormal = () => {};
         return o;
     };
 
     const particles = [];
-    for (let i = 0; i < 20; i++) {
-        for (let j = 0; j < 20; j++) {
-            const x = 150 + i * env.l + env.l/2;
+    for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 30; j++) {
+            const x = 110 + i * env.l + env.l/2;
             const y = env.bottom - (j+1) * env.l;
             particles.push(makeParticle(x,y));
         }
@@ -301,12 +312,12 @@ Promise.all([
     const inners = [];
     const outers = [];
     const po = Math.ceil(env.re / env.l) * 2;
-    for (let y = 300; y <= env.bottom; y += env.l) {
+    for (let y = 100; y <= env.bottom; y += env.l) {
         inners.push(makeParticle(env.left, y));
         inners.push(makeParticle(env.right, y));
         for (let dx = env.l; dx <= env.l * po; dx += env.l) {
-            outers.push(makeOuterWall(env.left - dx, y));
-            outers.push(makeOuterWall(env.right + dx, y));
+            outers.push(makeParticle(env.left - dx, y));
+            outers.push(makeParticle(env.right + dx, y));
         }
     }
     for (let x = env.left+env.l; x < env.right; x += env.l) {
@@ -314,7 +325,7 @@ Promise.all([
     }
     for (let x = env.left-env.l * po; x <= env.right + env.l * po; x += env.l) {
         for (let dy = env.l; dy <= env.l * po; dy += env.l) {
-            outers.push(makeOuterWall(x, env.bottom + dy));
+            outers.push(makeParticle(x, env.bottom + dy));
         }
     }
     const particleAndInners = [];
