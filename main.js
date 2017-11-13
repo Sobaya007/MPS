@@ -1,3 +1,7 @@
+const stats = new Stats();
+
+document.body.appendChild(stats.domElement);
+
 const canvas = document.createElement("canvas");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
@@ -52,6 +56,7 @@ const clearGrid = () => {
 
 const render = () => {
     requestAnimationFrame(render);
+    stats.update();
     for (let k = 0; k < 3; k++) {
         clearGrid();
         particleAndInners.forEach(p => p.registerGrid());
@@ -125,9 +130,9 @@ const makeParticle = (x,y) => {
         grid[nx][ny].push(o);
     };
     o.prepareStep = () => {
-        const ps = particleAndInnerAndOuters.filter(p => p != o);
-        o.laplacianVelX = 2 * env.d / env.lambda / env.n0 * sum(ps.map(p => (p.vel.x - o.vel.x) * weight(o,p)));
-        o.laplacianVelY = 2 * env.d / env.lambda / env.n0 * sum(ps.map(p => (p.vel.y - o.vel.y) * weight(o,p)));
+        const nears = o.getNears();
+        o.laplacianVelX = 2 * env.d / env.lambda / env.n0 * sum(nears.map(p => (p.vel.x - o.vel.x) * weight(o,p)));
+        o.laplacianVelY = 2 * env.d / env.lambda / env.n0 * sum(nears.map(p => (p.vel.y - o.vel.y) * weight(o,p)));
     }
     o.step = () => {
         o.vel.x += env.dt * (env.nyu * o.laplacianVelX + o.frc.x);
@@ -175,8 +180,9 @@ const makeParticle = (x,y) => {
         //let minP = o.pressure;
         //if (o.nears.length > 0)
         //    o.nears.map(p => p.pressure).reduce((a,b) => a < b ? a : b);
-        const ps = particleAndInners.filter(p => p != o);
         const minP = particleAndInners.filter(p => distance(o,p) < env.re).map(p => p.pressure).reduce((a,b) => a < b ? a : b);
+
+        const ps = o.getNears();
         o.gradPressureX = env.d / env.n0 * sum(ps.map(p => (p.pressure - minP) / distanceSq(o,p) * (p.pos.x - o.pos.x) * weight(o,p)));
         o.gradPressureY = env.d / env.n0 * sum(ps.map(p => (p.pressure - minP) / distanceSq(o,p) * (p.pos.y - o.pos.y) * weight(o,p)));
     };
