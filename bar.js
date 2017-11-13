@@ -8,6 +8,7 @@ var Bar = {
         })();
         document.body.appendChild(canvas);
         gl = canvas.getContext("webgl");
+        gl.getExtension('OES_texture_float');
         const onResize =  () => {
             const size = Math.min(window.innerWidth,window.innerHeight);
             const dx = (window.innerWidth - size) / 2;
@@ -161,5 +162,28 @@ var Bar = {
             gl.uniform1i(texLocation, cnt);
             cnt++;
         });
+    },
+    createRenderTarget : (width = Bar.viewportSize, height = Bar.viewportSize) => new Promise(resolve => {
+        const tex = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, tex);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, width, height, 0, gl.RGBA, gl.FLOAT, null);
+        const fb = gl.createFramebuffer();
+        gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+        resolve({
+            frameBuffer: fb,
+            texture : tex
+        });
+    }),
+    renderTo : (renderTarget, render) => {
+        gl.bindFramebuffer(gl.FRAMEBUFFER, renderTarget.frameBuffer);
+        render();
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+        return renderTarget.texture;
     }
 };

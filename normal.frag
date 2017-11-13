@@ -7,5 +7,8 @@ uniform float isSurface;
 void main() {
     float r = length(uv - 0.5);
     if (r > 0.5) discard;
-    gl_FragColor = vec4(1,0,0,0.5 - r);
+    vec3 normal;
+    normal.xy = uv * 2. - 1.;
+    normal.z = 1. - length(normal.xy);
+    gl_FragColor = vec4(normal * (0.5 - r), 1);
 }

@@ -3,22 +3,25 @@ const stats = new Stats();
 document.body.appendChild(stats.domElement);
 
 Bar.init();
-gl.clearColor(0,0,0,1);
 
 Promise.all([
     Bar.createProgram("p.vert", "p.frag"),
+    Bar.createProgram("normal.vert", "normal.frag"),
+    Bar.createProgram("post.vert", "post.frag"),
     Bar.createAttribute([
         [0,0],
         [0,1],
         [1,0],
         [1,1]
-    ])
-]).then(([pProg, pAttr]) => {
+    ]),
+    Bar.createRenderTarget(),
+    Bar.createRenderTarget()
+]).then(([pProg, nProg, postProg, pAttr, renderTarget, normalRenderTarget]) => {
     const env = {
         dt : 1,
         nu : 0.1,
         rho0 : 1,
-        r : 4,
+        r : 12,
         re : 14,
         d : 2,
         alpha : 0.1,
@@ -33,11 +36,25 @@ Promise.all([
     };
 
     Bar.attributes(pProg, {
-        "pos" : pAttr
+        pos : pAttr
     });
     Bar.uniforms(pProg, {
-        "radius" : env.r,
-        "windowSize" : Bar.viewportSize
+        radius : env.r,
+        windowSize : Bar.viewportSize
+    });
+    Bar.attributes(nProg, {
+        pos : pAttr
+    });
+    Bar.uniforms(nProg, {
+        radius : env.r,
+        windowSize : Bar.viewportSize
+    });
+    Bar.attributes(postProg, {
+        pos : pAttr
+    });
+    Bar.uniformTextures(postProg, {
+        kernelTexture : renderTarget.texture,
+        normalTexture : normalRenderTarget.texture
     });
 
     const init = particles => {
@@ -86,8 +103,6 @@ Promise.all([
             particles.forEach(p => p.prepareStep2());
             particles.forEach(p => p.step2());
         }
-        gl.clear(gl.COLOR_BUFFER_BIT);
-        particleAndInnerAndOuters.forEach(p => p.render());
         const render2 = (x,y,t) => {
             t *= Math.PI * 2;
             const r = Math.sin(t) * .5 + .5;
@@ -100,8 +115,28 @@ Promise.all([
             });
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         };
+        Bar.renderTo(renderTarget, () => {
+            gl.clearColor(0,0,0,0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.enable(gl.BLEND);
+            gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+            gl.blendEquation(gl.ADD);
+            particleAndInnerAndOuters.forEach(p => p.render());
+        });
+        Bar.renderTo(normalRenderTarget, () => {
+            gl.clearColor(0,0,0,0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.enable(gl.BLEND);
+            gl.blendFunc(gl.ONE, gl.ONE);
+            gl.blendEquation(gl.MAX);
+            particleAndInnerAndOuters.forEach(p => p.renderNormal());
+        });
+        gl.clearColor(0,0,0,1);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.useProgram(postProg);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         for (let i = 0; i < 255; i++) {
-            render2(10,10 + i*2, i / 255);
+            //render2(10,10 + i*2, i / 255);
         }
     };
 
@@ -212,15 +247,22 @@ Promise.all([
             o.pos.x += env.dt * (o.vel.x - vx);
             o.pos.y += env.dt * (o.vel.y - vy);
         };
-        o.render = ctx => {
+        o.render = () => {
             const t = (o.dp ? o.dp : 0) * 2 * Math.PI;
             const r = Math.sin(t) * .5 + .5;
             const g = Math.sin(t + Math.PI * 2 / 3) * .5 + .5;
             const b = Math.sin(t - Math.PI * 2 / 3) * .5 + .5;
             gl.useProgram(pProg);
             Bar.uniforms(pProg, {
-                "center" : [o.pos.x, o.pos.y],
-                "color" : [r,g,b]
+                center : [o.pos.x, o.pos.y],
+                color : [r,g,b],
+            });
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        };
+        o.renderNormal = () => {
+            gl.useProgram(nProg);
+            Bar.uniforms(nProg, {
+                center : [o.pos.x, o.pos.y],
             });
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         };
@@ -238,11 +280,13 @@ Promise.all([
         o.render = ctx => {
             gl.useProgram(pProg);
             Bar.uniforms(pProg, {
-                "center" : [o.pos.x, o.pos.y],
-                "color" : [0,1,0]
+                center : [o.pos.x, o.pos.y],
+                color : [0,1,0],
+                isSurface : 0
             });
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         };
+        o.renderNormal = () => {};
         return o;
     };
 
