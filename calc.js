@@ -11,7 +11,7 @@ const makeCalculator = () => {
     }
     const po = Math.ceil(env.re / env.l) * 2;
     // Place Side Walls
-    for (let y = 100; y <= env.bottom; y += env.l) {
+    for (let y = env.top; y <= env.bottom; y += env.l) {
         inners.push(makeParticle(env.left, y));
         inners.push(makeParticle(env.right, y));
         for (let dx = env.l; dx <= env.l * po; dx += env.l) {

@@ -177,7 +177,9 @@ var Bar = {
         gl.bindFramebuffer(gl.FRAMEBUFFER, null);
         resolve({
             frameBuffer: fb,
-            texture : tex
+            texture : tex,
+            width : width,
+            height : height
         });
     }),
     renderTo : (renderTarget, render) => {

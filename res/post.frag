@@ -5,7 +5,6 @@ varying vec2 uv;
 uniform sampler2D kernelTexture;
 uniform sampler2D normalTexture;
 uniform sampler2D backgroundTexture;
-uniform float isSurface;
 
 void main() {
     vec4 kernel = texture2D(kernelTexture, uv);

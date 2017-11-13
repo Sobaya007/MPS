@@ -13,8 +13,9 @@ const env = {
     lv : 3,
     left : 100,
     right : 500,
-    top : 100,
-    bottom : 400
+    top : 300,
+    bottom : 600,
+    virtualWindowSize : 700
 };
 const particles = [];
 const inners = [];
