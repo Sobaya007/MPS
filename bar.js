@@ -190,32 +190,35 @@ var Bar = {
     },
     setOnMouseDown : callback => {
         document.addEventListener("mousedown", event => {
-            const dx = (window.innerWidth  - Bar.viewportSize) / 2;
-            const dy = (window.innerHeight - Bar.viewportSize) / 2;
-            callback({
-                x : (event.clientX - dx) / Bar.viewportSize * 2 - 1,
-                y : (event.clientY - dy) / Bar.viewportSize * 2 - 1
-            });
+            callback(Bar.convScreenToGL({x:event.clientX, y:event.clientY}));
+        });
+        document.addEventListener("touchstart", event => {
+            callback(Bar.convScreenToGL({x:event.touches[0].clientX, y:event.touches[0].clientY}));
         });
     },
     setOnMouseUp : callback => {
         document.addEventListener("mouseup", event => {
-            const dx = (window.innerWidth  - Bar.viewportSize) / 2;
-            const dy = (window.innerHeight - Bar.viewportSize) / 2;
-            callback({
-                x : (event.clientX - dx) / Bar.viewportSize * 2 - 1,
-                y : (event.clientY - dy) / Bar.viewportSize * 2 - 1
-            });
+            callback(Bar.convScreenToGL({x:event.clientX, y:event.clientY}));
+        });
+        document.addEventListener("touchend", event => {
+            callback(Bar.convScreenToGL({x:event.changedTouches[0].clientX, y:event.changedTouches[0].clientY}));
         });
     },
     setOnMouseMove : callback => {
         document.addEventListener("mousemove", event => {
-            const dx = (window.innerWidth  - Bar.viewportSize) / 2;
-            const dy = (window.innerHeight - Bar.viewportSize) / 2;
-            callback({
-                x : (event.clientX - dx) / Bar.viewportSize * 2 - 1,
-                y : (event.clientY - dy) / Bar.viewportSize * 2 - 1
-            });
+            callback(Bar.convScreenToGL({x:event.clientX, y:event.clientY}));
         });
+        document.addEventListener("touchmove", event => {
+            callback(Bar.convScreenToGL({x:event.touches[0].clientX, y:event.touches[0].clientY}));
+        });
+    },
+    convScreenToGL : pos => {
+        const dx = (window.innerWidth  - Bar.viewportSize) / 2;
+        const dy = (window.innerHeight - Bar.viewportSize) / 2;
+        return {
+            x : (pos.x - dx) / Bar.viewportSize * 2 - 1,
+            y : (pos.y - dy) / Bar.viewportSize * 2 - 1
+        };
     }
 };
+
