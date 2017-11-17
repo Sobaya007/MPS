@@ -6,26 +6,26 @@ const makeCalculator = () => {
         for (let j = 0; j < 30; j++) {
             const x = 110 + i * env.l + env.l/2;
             const y = env.bottom - (j+1) * env.l;
-            particles.push(makeParticle(x,y));
+            particles.push(makeParticle(x,y, "Water"));
         }
     }
     const po = Math.ceil(env.re / env.l) * 2;
     // Place Side Walls
     for (let y = env.top; y <= env.bottom; y += env.l) {
-        inners.push(makeParticle(env.left, y));
-        inners.push(makeParticle(env.right, y));
+        inners.push(makeParticle(env.left, y, "InnerWall"));
+        inners.push(makeParticle(env.right, y, "InnerWall"));
         for (let dx = env.l; dx <= env.l * po; dx += env.l) {
-            outers.push(makeParticle(env.left - dx, y));
-            outers.push(makeParticle(env.right + dx, y));
+            outers.push(makeParticle(env.left - dx, y, "OuterWall"));
+            outers.push(makeParticle(env.right + dx, y, "OuterWall"));
         }
     }
     // Place Bottom Walls
     for (let x = env.left+env.l; x < env.right; x += env.l) {
-        inners.push(makeParticle(x, env.bottom));
+        inners.push(makeParticle(x, env.bottom, "InnerWall"));
     }
     for (let x = env.left-env.l * po; x <= env.right + env.l * po; x += env.l) {
         for (let dy = env.l; dy <= env.l * po; dy += env.l) {
-            outers.push(makeParticle(x, env.bottom + dy));
+            outers.push(makeParticle(x, env.bottom + dy, "OuterWall"));
         }
     }
     inners.forEach(p => grid.registerWall(p));

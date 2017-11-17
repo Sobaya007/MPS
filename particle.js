@@ -1,11 +1,12 @@
-const makeParticle = (x,y) => {
+const makeParticle = (x,y,type) => {
     const o = {
         pos: {x:x, y:y},
         vel: {x:0, y:0},
         frc: {x:0, y:env.g},
         pressure: 0,
         laplacianVel: {x:0, y:0},
-        gradientPressure: {x:0, y:0}
+        gradientPressure: {x:0, y:0},
+        type: type
     };
     o.checkVel = () => {
         const v = length(o.vel);
@@ -28,17 +29,19 @@ const makeParticle = (x,y) => {
     };
     o.prepareSolvePressure = () => {
         const nears = grid.getNears(o);
-        o.weights = nears.map(p => {return {p:p,w:weight(o,p)};});
-        o.n = sum(nears.map(p => weight(o,p)));
-        o.c = -env.alpha * env.rho0 * (o.n - env.n0) * env.lambda * env.n0 / (env.dt * env.dt * env.n0 * 2 * env.d);
-        o.isSurface = o.n < env.beta * env.n0;
+        const n = sum(nears.map(p => weight(o,p)));
+        const nearsWithoutOuterWall = nears.filter(p => p.type != "OuterWall");
+        o.weights = nearsWithoutOuterWall.map(p => {return {p:p,w:weight(o,p)};});
+        o.a = sum(nearsWithoutOuterWall.map(p => weight(o,p)));
+        o.c = -env.alpha * env.rho0 * (n - env.n0) * env.lambda * env.n0 / (env.dt * env.dt * env.n0 * 2 * env.d);
+        o.isSurface = n < env.beta * env.n0;
         if (o.isSurface) {
             o.pressure = 0;
         }
     };
     o.solvePressure = () => {
         const b = sum(o.weights.map(w => w.p.pressure * w.w));
-        o.pressure = Math.min(5, (b - o.c) / o.n);
+        o.pressure = Math.min(5, (b - o.c) / o.a);
     };
     o.prepareStep2 = () => {
         const nears = grid.getNears(o);
